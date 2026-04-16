@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   spark:
-    image: apache/spark:3.5.1
+    image: thailinh2003/spark:3.0.0
     container_name: spark
     command: >
       bash -c "
@@ -17,7 +17,7 @@ services:
       - spark-net
 
   livy:
-    image: openeuler/livy:0.8.0-oe2403sp1
+    image: thailinh2003/livy:2.0.0
     container_name: livy
     depends_on:
       - spark
@@ -25,6 +25,7 @@ services:
       - "8998:8998"
     volumes:
       - ./livy/livy.conf:/opt/livy/conf/livy.conf
+      - ./simple-spark-job/target/simple-spark-job-1.0-SNAPSHOT.jar:/tmp/simple-spark-job-1.0-SNAPSHOT.jar
     networks:
       - spark-net
 
