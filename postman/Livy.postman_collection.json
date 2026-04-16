@@ -1,0 +1,768 @@
+{
+  "info": {
+    "_postman_id": "4157f14d-f0fc-47fc-a2de-3356f2ef3d26",
+    "name": "Livy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52311620",
+    "_collection_link": "https://go.postman.co/collection/52311620-4157f14d-f0fc-47fc-a2de-3356f2ef3d26?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get sessions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8998/sessions?from=0&size=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "0",
+              "description": "The start index to fetch sessions"
+            },
+            {
+              "key": "size",
+              "value": "10",
+              "description": "Number of sessions to fetch"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"kind\": \"spark\",\r\n  \"name\": \"livy2\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions"
+          ],
+          "query": [
+            {
+              "key": "kind",
+              "value": "pyspark",
+              "description": "The session kind",
+              "disabled": true
+            },
+            {
+              "key": "proxyUser",
+              "value": "",
+              "description": "User to impersonate when starting the session",
+              "disabled": true
+            },
+            {
+              "key": "jars",
+              "value": null,
+              "description": "jars to be used in this session",
+              "disabled": true
+            },
+            {
+              "key": "pyFilles",
+              "value": null,
+              "description": "Python files to be used in this session",
+              "disabled": true
+            },
+            {
+              "key": "files",
+              "value": null,
+              "description": "files to be used in this session",
+              "disabled": true
+            },
+            {
+              "key": "driverMemory",
+              "value": null,
+              "description": "Amount of memory to use for the driver process",
+              "disabled": true
+            },
+            {
+              "key": "driverCores",
+              "value": null,
+              "description": "Number of cores to use for the driver process",
+              "disabled": true
+            },
+            {
+              "key": "executorMemory",
+              "value": null,
+              "description": "Amount of memory to use per executor process",
+              "disabled": true
+            },
+            {
+              "key": "executorCores",
+              "value": null,
+              "description": "Number of cores to use for each executor",
+              "disabled": true
+            },
+            {
+              "key": "numExecutors",
+              "value": null,
+              "description": "Number of executors to launch for this session",
+              "disabled": true
+            },
+            {
+              "key": "archives",
+              "value": null,
+              "description": "Archives to be used in this session",
+              "disabled": true
+            },
+            {
+              "key": "queue",
+              "value": null,
+              "description": "The name of the YARN queue to which submitted",
+              "disabled": true
+            },
+            {
+              "key": "name",
+              "value": "linht_test_livy",
+              "description": "The name of this session",
+              "disabled": true
+            },
+            {
+              "key": "conf",
+              "value": null,
+              "description": "Spark configuration properties",
+              "disabled": true
+            },
+            {
+              "key": "heartbeatTimeoutInSecond",
+              "value": null,
+              "description": "Timeout in second to which session be orphaned",
+              "disabled": true
+            },
+            {
+              "key": "ttl",
+              "value": null,
+              "description": "The timeout for this inactive session, example: 10m (10 minutes)",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Session Information",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get session state",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/0/state",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "0",
+            "state"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete sessions",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "0"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get session log",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/1/log?from=0&size=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "1",
+            "log"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "0",
+              "description": "Offset"
+            },
+            {
+              "key": "size",
+              "value": "10",
+              "description": "Max number of log lines to return"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get session statements",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"statements\": [\"available\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/0/statements?from=0&size=10&order=desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "0",
+            "statements"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "0",
+              "description": "Offset"
+            },
+            {
+              "key": "size",
+              "value": "10",
+              "description": "Max number of log lines to return"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Run statements",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"code\": \"from pyspark.sql import SparkSession\\nspark = SparkSession.builder.getOrCreate()\\ndata = [(1, 'Alice'), (2, 'Bob')]\\ndf = spark.createDataFrame(data, ['id', 'name'])\\ndf.show()\",\r\n  \"kind\": \"pyspark\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/0/statements",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "0",
+            "statements"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Run statements Scala",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"val data = Seq((1, \\\"Alice\\\"), (2, \\\"Bob\\\"))\\nval df = spark.createDataFrame(data).toDF(\\\"id\\\", \\\"name\\\")\\ndf.show()\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/2/statements",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "2",
+            "statements"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get session statements",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/2/statements/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "2",
+            "statements",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cancel run statements",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"msg\": \"canceled\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/2/statements/1/cancel",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "2",
+            "statements",
+            "1",
+            "cancel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Return session complete",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"val df = spark.read.\",\n  \"kind\": \"spark\",\n  \"cursor\": 21\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/sessions/2/completion",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "sessions",
+            "2",
+            "completion"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get batchs",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/batches?from=0&size=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "batches"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create batch sessions",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"file\": \"s3a://warehouse/simple-spark-job-1.0-SNAPSHOT.jar\",\n  \"className\": \"com.example.SimpleJob\",\n  \"args\": [],\n  \"numExecutors\": 2,\n  \"executorMemory\": \"2g\",\n  \"conf\": {\n    \"spark.hadoop.fs.s3a.access.key\": \"minioadmin\",\n    \"spark.hadoop.fs.s3a.secret.key\": \"minioadmin\",\n    \"spark.hadoop.fs.s3a.endpoint\": \"http://minio:9000\",\n    \"spark.hadoop.fs.s3a.path.style.access\": \"true\",\n    \"spark.hadoop.fs.s3a.impl\": \"org.apache.hadoop.fs.s3a.S3AFileSystem\"\n}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/batches",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "batches"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get batch",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/batches/7",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "batches",
+            "7"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get batch state",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/batches/4/state",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "batches",
+            "4",
+            "state"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete batch",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/batches/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "batches",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get batch log",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8998/batches/4/log?from=0&size=1000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8998",
+          "path": [
+            "batches",
+            "4",
+            "log"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "1000"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
